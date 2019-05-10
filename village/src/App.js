@@ -4,6 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import axios from 'axios';
+import SmurfUpdate from './components/SmurfUpdate';
 
 class App extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class App extends Component {
 
   updateSmurf = (updatedSmurf, id) => {
     axios
-      .put(`http://localhost:5000/friends/${id}`, updatedSmurf)
+      .put(`http://localhost:3333/smurfs/${id}`, updatedSmurf)
       .then(res => this.setState({ smurfs: res.data }))
       .catch(err =>
         console.log(err));
@@ -56,7 +57,7 @@ class App extends Component {
 
   setUpdateForm = item => {
     this.setState({ activeItem: item });
-    this.props.history.push('/');
+    this.props.history.push('/update-form');
   };
 
   render() {
@@ -79,6 +80,16 @@ class App extends Component {
               smurfs={this.state.smurfs}
               deleteSmurf={this.deleteSmurf}
               setUpdateForm={this.setUpdateForm} />} />
+        <Route
+         path="/update-form"
+          render={props => (
+            <SmurfUpdate
+              {...props}
+              updateSmurf={this.updateSmurf}
+              smurf={this.state.activeItem}
+            />
+          )}
+        />
       </div>
     );
   }
