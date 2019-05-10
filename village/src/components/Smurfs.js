@@ -3,6 +3,23 @@ import React, { Component } from 'react';
 import Smurf from './Smurf';
 
 class Smurfs extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      smurfs: []
+    };
+  }
+
+  deleteSmurf = (e, id) => {
+    e.preventDefault();
+    this.props.deleteSmurf(id);
+  };
+
+  updateForm = (e, smurf) => {
+    e.preventDefault();
+    this.props.setUpdateForm(smurf);
+  };
+
   render() {
     return (
       <div className="Smurfs">
@@ -10,6 +27,7 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
+              <div>
               <Smurf
                 name={smurf.name}
                 id={smurf.id}
@@ -17,6 +35,9 @@ class Smurfs extends Component {
                 height={smurf.height}
                 key={smurf.id}
               />
+              <button type="submit" onClick={(e) => this.deleteSmurf(e, smurf.id)}>Delete Smurf</button>
+              <button type="submit" onClick={(e) => this.updateForm(e, smurf)}>Update Smurf</button>
+              </div>
             );
           })}
         </ul>
