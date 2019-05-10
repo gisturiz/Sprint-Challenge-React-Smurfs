@@ -29,8 +29,27 @@ In this challenge, you will create a Single Page Application complete with Clien
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain the differences between `client-side routing` and `server-side routing`.
+
+Server-side routing is when viewing a website and navigating by clicking on different links which are rendered individually through Get requests to the server. Pros are that initial load time is faster, but later loads may contain redundant information being reloaded again (such as footers and headers.) User experience is also different and somewhat slower, as the user needs to wait for whole page reloads every time he/she navigates.
+
+Client-side routing involves downloading the whole site the first time the URL is accessed, which is the reason for the longer initial load of the site. However, once loaded, the site will only load and render the changes to a page, not necessarily in its entirety. This makes for a faster, smoother experience within the website. Another perceived drawback of client-side routing is that there exist the potential that some of the initially loaded data will never be accessed.
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+The main 4 HTTP methods we can use to interact with APIs/Servers:
+
+1. GET - the client asks a server for information using a specific URL pointing to the resource.
+2. POST - the client asks the server to add a new resource.
+3. DELETE - the client asks the server to delete a resource.
+4. PUT -  the client asks the server to update the information of a resource.
+
 - [ ] Mention three tools we can use to make AJAX requests.
+
+3 tools we can use to make AJAX requests:
+
+1. Axios - a library for performing promise based HTTP requests from the browser.
+2. Fetch method - it creates an async AJAX request.
+3. jQuery AJAX - is used to perform an async HTTP AJAX request.
 
 
 ## Project Set Up
